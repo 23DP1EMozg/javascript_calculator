@@ -20,12 +20,18 @@ const operators = ['-', '+', '/', '*', '.']
 let query = ""
 
 const calculate = () => {
-    updateValues(eval(query))
+    const result = eval(query)
+
+    if(result === Infinity){
+        input.value = "Error"
+        return
+    }
+
+    updateValues(result)
 }
 
 const updateValues = (value) => {
     input.value = value
-    input.textContent = value
     query = String(value)
 }
 
